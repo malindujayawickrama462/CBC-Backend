@@ -9,12 +9,6 @@ let app = express();
 
 app.use(bodyParser.json());
 
-app.use((req,res,next)=>{
-    const tokenString = req.header("Authorization")
-    next()
-}
-)
-
 mongoose.connect("mongodb+srv://malindu:123@cluster0.zp3ipbn.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0").then(()=>{
     console.log("Connected to the database")
 }).catch(()=>{
