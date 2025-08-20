@@ -1,8 +1,13 @@
+
+import { Link } from "react-router-dom";
+import UserData from "./userData";
+
 export default function Header(){
     return(
-        <div>
-            <h1>Crystal beauty</h1>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Exercitationem voluptas asperiores vel assumenda quia fuga ad inventore eveniet sed sint.</p>
+        <div className="bg-[#FFFF00]">
+            <Link to="/">Home</Link>
+            <Link to="/login">Login</Link>
+            <Link to="/SignUp">Sign Up</Link>
         </div>
     )
 }
