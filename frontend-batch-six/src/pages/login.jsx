@@ -10,7 +10,10 @@ export default function LoginPage(){
         console.log(email);
         console.log(password);
         try{
-             const response = await axios.post("http://localhost:5000/api/user/login",)
+             const response = await axios.post("http://localhost:5000/api/user/login",{
+                email : email,
+                password : password
+             })
              console.log(response)
         }catch(e){
             console.log(e)
@@ -27,14 +30,14 @@ export default function LoginPage(){
                 <input onChange = {(e)=>{
 
                     setEmail(e.target.value)
-                    console.log("email has been changed")
+                    
                 }}
                 value={email}
                 className="w-[300px] h-[50px] border border-[#c3efe9] rounded-[20px] mb-[20px]"/>
                 <input onChange={(e)=>{
 
                     setPassword(e.target.value)
-                    console.log("Password has been changed")
+                    
                 }} 
                 value={password}
                 type = "password" className="w-[300px] h-[50px] border border-[#c3efe9] rounded-[20px] mb-[20px]"/>
