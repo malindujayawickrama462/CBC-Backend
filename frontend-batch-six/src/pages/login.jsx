@@ -1,10 +1,12 @@
 import axios from "axios";
 import { useState } from "react"
+import { useNavigate } from "react-router-dom";
 
 export default function LoginPage(){
 
     const [email,setEmail] = useState("")
     const [password,setPassword] = useState("")
+    const navigate = useNavigate()
 
     async function handleLogin(){
         console.log(email);
@@ -14,7 +16,17 @@ export default function LoginPage(){
                 email : email,
                 password : password
              })
-             console.log(response)
+             //alert ("Login successfull")
+             console.log("Login Successfull")
+             console.log(response.data)
+             //from console
+             localStorage.setItem("token",response.data.token)
+            //send user to admin panel if he exit
+             if(response.data.role == "admin"){
+                navigate("/admin/")
+             }else{
+                navigate("/")
+             }
         }catch(e){
             console.log(e)
        }
