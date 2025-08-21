@@ -10,7 +10,7 @@ export default function LoginPage(){
         console.log(email);
         console.log(password);
         try{
-             const response = await axios.post("http://localhost:5000/api/user/login",{
+             const response = await axios.post(import.meta.env.VITE_BACKEND_URL + "/api/user/login",{
                 email : email,
                 password : password
              })
